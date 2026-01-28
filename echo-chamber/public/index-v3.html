@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 La Cámara de Ecos V3.0 - Predictor Avanzado de Secuencias</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js@4.4.1/dist/chart.umd.js"></script>
+    <link rel="stylesheet" href="styles-v3.css">
+</head>
+<body>
+    <div class="castillo-fondo"></div>
+    
+    <!-- HEADER -->
+    <header class="encabezado">
+        <div class="contenedor-header">
+            <div class="titulo-header">
+                <h1>🏰 La Cámara de Ecos V3.0</h1>
+                <p class="subtitulo">Predictor Avanzado de Secuencias Matemáticas</p>
+            </div>
+            <div class="estado-server">
+                <span class="indicador-salud" id="indicadorSalud">●</span>
+                <span id="estadoServidor">Conectando...</span>
+            </div>
+        </div>
+    </header>
+
+    <!-- NAVEGACIÓN -->
+    <nav class="navegacion">
+        <button class="boton-nav activo" data-tab="predictor">⚡ Predictor</button>
+        <button class="boton-nav" data-tab="analisis">📊 Análisis</button>
+        <button class="boton-nav" data-tab="historial">📜 Historial</button>
+        <button class="boton-nav" data-tab="graficos">📈 Gráficos</button>
+    </nav>
+
+    <!-- CONTENIDO PRINCIPAL -->
+    <main class="contenido">
+
+        <!-- TAB: PREDICTOR -->
+        <section id="tab-predictor" class="tab-contenido activo">
+            <div class="columnas-2">
+                <!-- Panel de Entrada -->
+                <div class="panel">
+                    <h2>🔮 Analizar Secuencia</h2>
+                    <div class="grupo-entrada">
+                        <label for="inputSecuencia">Ingresa números separados por coma:</label>
+                        <textarea 
+                            id="inputSecuencia" 
+                            placeholder="Ejemplo: 3, 6, 9, 12, 15
+O: 2, 4, 8, 16, 32
+O: 1, 1, 2, 3, 5, 8 (Fibonacci)"
+                            rows="4"></textarea>
+                        <div class="botones-principales">
+                            <button id="btnAnalizar" class="boton boton-primario">⚡ Analizar</button>
+                            <button id="btnLimpiar" class="boton boton-secundario">🔄 Limpiar</button>
+                        </div>
+                    </div>
+
+                    <!-- Ejemplos Rápidos -->
+                    <div class="ejemplos">
+                        <h3>📚 Ejemplos Rápidos</h3>
+                        <button class="boton-ejemplo" data-seq="3, 6, 9, 12">Aritmética</button>
+                        <button class="boton-ejemplo" data-seq="2, 4, 8, 16">Geométrica</button>
+                        <button class="boton-ejemplo" data-seq="1, 4, 9, 16, 25">Cuadrática</button>
+                        <button class="boton-ejemplo" data-seq="1, 1, 2, 3, 5, 8">Fibonacci</button>
+                    </div>
+                </div>
+
+                <!-- Panel de Resultados -->
+                <div class="panel">
+                    <h2>✨ Resultado</h2>
+                    <div id="resultado" class="resultado-contenedor oculto"></div>
+                    <div id="error" class="error-contenedor oculto"></div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: ANÁLISIS -->
+        <section id="tab-analisis" class="tab-contenido">
+            <div class="panel-grande">
+                <h2>📊 Análisis Estadístico</h2>
+                <div id="estadisticas" class="grid-stats">
+                    <!-- Se llena dinámicamente -->
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: HISTORIAL -->
+        <section id="tab-historial" class="tab-contenido">
+            <div class="columnas-2">
+                <div class="panel">
+                    <h2>📜 Filtros</h2>
+                    <div class="filtros">
+                        <button class="boton-filtro activo" data-tipo="todos">Todos</button>
+                        <button class="boton-filtro" data-tipo="aritmética">Aritmética</button>
+                        <button class="boton-filtro" data-tipo="geométrica">Geométrica</button>
+                        <button class="boton-filtro" data-tipo="polinómica">Polinómica</button>
+                        <button class="boton-filtro" data-tipo="fibonacci">Fibonacci</button>
+                    </div>
+                    <button id="btnBorrarHistorial" class="boton boton-peligro">🗑️ Borrar Todo</button>
+                </div>
+                <div class="panel">
+                    <h2>📋 Recuerdos de Ecos</h2>
+                    <div id="listaHistorial" class="lista-recuerdos">
+                        <!-- Se llena dinámicamente -->
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <!-- TAB: GRÁFICOS -->
+        <section id="tab-graficos" class="tab-contenido">
+            <div class="panel-grande">
+                <h2>📈 Visualización de Secuencias</h2>
+                <canvas id="grafico"></canvas>
+                <div id="infoGrafico" class="info-grafico"></div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- FOOTER -->
+    <footer class="pie">
+        <p>🏰 La Cámara de Ecos V3.0 | Predictor Avanzado de Secuencias Matemáticas</p>
+        <p>Tipos soportados: Aritmética, Geométrica, Polinómica, Fibonacci</p>
+    </footer>
+
+    <script src="app-v3.js"></script>
+</body>
+</html>

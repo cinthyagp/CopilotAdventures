@@ -1,0 +1,114 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🏰 La Cámara de Ecos - Predictor de Secuencias</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    <div class="container">
+        <!-- Encabezado -->
+        <header class="header">
+            <div class="header-content">
+                <h1>🏰 La Cámara de Ecos 🏰</h1>
+                <p class="subtitle">Un Predictor de Secuencias Aritméticas Místico</p>
+            </div>
+        </header>
+
+        <!-- Contenido principal -->
+        <main class="main-content">
+            <!-- Panel izquierdo: Entrada -->
+            <section class="input-section">
+                <div class="section-header">
+                    <h2>🔮 Analiza una Secuencia</h2>
+                </div>
+
+                <div class="input-group">
+                    <label for="sequenceInput">Ingresa tu secuencia de números:</label>
+                    <input 
+                        type="text" 
+                        id="sequenceInput" 
+                        placeholder="Ej: 3,6,9,12 o 2,4,6,8"
+                        class="input-field"
+                    >
+                    <small class="help-text">Separa los números con comas</small>
+                </div>
+
+                <div class="button-group">
+                    <button id="analyzeBtn" class="btn btn-primary">
+                        ✨ Analizar Secuencia
+                    </button>
+                    <button id="sampleBtn" class="btn btn-secondary">
+                        📊 Ejemplo [3,6,9,12]
+                    </button>
+                </div>
+
+                <!-- Resultado -->
+                <div id="result" class="result-section hidden">
+                    <div id="resultContent"></div>
+                </div>
+
+                <!-- Error -->
+                <div id="error" class="error-section hidden">
+                    <div id="errorContent"></div>
+                </div>
+            </section>
+
+            <!-- Panel derecho: Información y Recuerdos -->
+            <section class="info-section">
+                <!-- Información de Progresión Aritmética -->
+                <div class="info-card">
+                    <h3>📚 ¿Qué es una Progresión Aritmética?</h3>
+                    <p>Una progresión aritmética es una secuencia donde la diferencia entre términos consecutivos es <strong>siempre la misma</strong>.</p>
+                    <div class="example-box">
+                        <strong>Ejemplo:</strong><br>
+                        Secuencia: [3, 6, 9, 12]<br>
+                        Diferencias: 6-3=3, 9-6=3, 12-9=3<br>
+                        <strong>Diferencia Común: 3</strong><br>
+                        <strong>Siguiente Número: 12 + 3 = 15</strong>
+                    </div>
+                </div>
+
+                <!-- Recuerdos de Ecos -->
+                <div class="info-card">
+                    <h3>💾 Recuerdos de Ecos</h3>
+                    <div id="memoriesContainer" class="memories-list">
+                        <p class="empty-message">✨ La cámara está silenciosa - sin recuerdos aún</p>
+                    </div>
+                    <button id="clearMemoriesBtn" class="btn btn-small btn-danger" style="margin-top: 10px;">
+                        🌫️ Borrar Recuerdos
+                    </button>
+                </div>
+
+                <!-- Casos de Prueba -->
+                <div class="info-card">
+                    <h3>🧪 Pruebas Rápidas</h3>
+                    <div class="quick-tests">
+                        <button class="test-btn" onclick="testSequence([1,2,3,4,5])">
+                            Incrementar por 1
+                        </button>
+                        <button class="test-btn" onclick="testSequence([10,20,30,40])">
+                            Incrementar por 10
+                        </button>
+                        <button class="test-btn" onclick="testSequence([100,95,90,85])">
+                            Decrementar por 5
+                        </button>
+                        <button class="test-btn" onclick="testSequence([-5,-3,-1,1])">
+                            Negativo a Positivo
+                        </button>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <!-- Pie de página -->
+        <footer class="footer">
+            <p>🏰 La Cámara de Ecos - Aprende reconocimiento de patrones aritméticos ✨</p>
+            <p class="version">Versión 2.0 - Interfaz Web</p>
+        </footer>
+    </div>
+
+    <script src="app.js"></script>
+</body>
+</html>

@@ -1,0 +1,35 @@
+{
+  "name": "echo-chamber",
+  "version": "3.0.0",
+  "description": "🏰 La Cámara de Ecos - Predictor Avanzado de Secuencias Matemáticas con soporte múltiple (Aritmética, Geométrica, Polinómica, Fibonacci). Interfaz web con Chart.js, BD SQLite, logging, y suite de tests.",
+  "main": "server-v3.js",
+  "type": "commonjs",
+  "scripts": {
+    "start": "node index.js",
+    "web": "node server-v3.js",
+    "web:old": "node server.js",
+    "test": "jest --detectOpenHandles",
+    "test:watch": "jest --watch",
+    "test:coverage": "jest --coverage",
+    "dev": "nodemon server-v3.js"
+  },
+  "dependencies": {
+    "express": "^4.18.2",
+    "chart.js": "^4.4.1"
+  },
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "nodemon": "^3.0.2"
+  },
+  "keywords": [
+    "aritmética",
+    "secuencia",
+    "predictor",
+    "patrón",
+    "reconocimiento",
+    "aventura",
+    "educación"
+  ],
+  "author": "CopilotAdventures",
+  "license": "MIT"
+}

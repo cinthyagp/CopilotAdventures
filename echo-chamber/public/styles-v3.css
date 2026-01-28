@@ -1,0 +1,545 @@
+/* 🏰 La Cámara de Ecos V3.0 - Estilos Temáticos Castillo */
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --color-primario: #667eea;
+    --color-secundario: #764ba2;
+    --color-exito: #48bb78;
+    --color-error: #f56565;
+    --color-advertencia: #ed8936;
+    --color-info: #4299e1;
+    --color-fondo: #0f0e17;
+    --color-panel: #1a1927;
+    --color-borde: #2d2a45;
+    --color-texto: #e2e8f0;
+    --color-texto-secundario: #a0aec0;
+    --sombra: 0 20px 25px rgba(0, 0, 0, 0.3);
+    --transicion: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+html, body {
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    background: linear-gradient(135deg, #0f0e17 0%, #1a1927 100%);
+    color: var(--color-texto);
+    line-height: 1.6;
+    overflow-x: hidden;
+}
+
+/* ==================== FONDO CASTILLO ==================== */
+
+.castillo-fondo {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: 
+        linear-gradient(135deg, rgba(102, 126, 234, 0.05) 0%, rgba(118, 75, 162, 0.05) 100%),
+        url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1200 800"><defs><pattern id="castle" x="0" y="0" width="200" height="200" patternUnits="userSpaceOnUse"><path d="M50,100 L50,150 M70,100 L70,150 M90,100 L90,150 M110,100 L110,150 M130,100 L130,150 M150,100 L150,150" stroke="%23667eea" stroke-width="1" opacity="0.1"/></pattern></defs><rect width="1200" height="800" fill="url(%23castle)"/></svg>') repeat;
+    pointer-events: none;
+    z-index: -1;
+}
+
+/* ==================== ENCABEZADO ==================== */
+
+.encabezado {
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    padding: 2rem;
+    box-shadow: var(--sombra);
+    border-bottom: 3px solid rgba(255, 255, 255, 0.1);
+}
+
+.contenedor-header {
+    max-width: 1200px;
+    margin: 0 auto;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.titulo-header h1 {
+    font-size: 2.5rem;
+    font-weight: 700;
+    margin-bottom: 0.5rem;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.3);
+}
+
+.titulo-header .subtitulo {
+    font-size: 1rem;
+    opacity: 0.95;
+}
+
+.estado-server {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    background: rgba(0, 0, 0, 0.2);
+    padding: 0.75rem 1.5rem;
+    border-radius: 50px;
+    border: 1px solid rgba(255, 255, 255, 0.3);
+}
+
+.indicador-salud {
+    display: inline-block;
+    width: 12px;
+    height: 12px;
+    border-radius: 50%;
+    background: var(--color-exito);
+    animation: pulso 2s infinite;
+}
+
+@keyframes pulso {
+    0%, 100% { opacity: 1; }
+    50% { opacity: 0.5; }
+}
+
+/* ==================== NAVEGACIÓN ==================== */
+
+.navegacion {
+    display: flex;
+    justify-content: center;
+    gap: 1rem;
+    padding: 1.5rem;
+    background: var(--color-panel);
+    border-bottom: 1px solid var(--color-borde);
+    flex-wrap: wrap;
+}
+
+.boton-nav {
+    padding: 0.75rem 1.5rem;
+    background: transparent;
+    color: var(--color-texto-secundario);
+    border: 2px solid var(--color-borde);
+    border-radius: 25px;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: var(--transicion);
+}
+
+.boton-nav:hover {
+    color: var(--color-texto);
+    border-color: var(--color-primario);
+}
+
+.boton-nav.activo {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    color: white;
+    border-color: transparent;
+}
+
+/* ==================== CONTENIDO ==================== */
+
+.contenido {
+    max-width: 1200px;
+    margin: 2rem auto;
+    padding: 0 1rem;
+}
+
+.tab-contenido {
+    display: none;
+    animation: aparecer 0.3s ease-in;
+}
+
+.tab-contenido.activo {
+    display: block;
+}
+
+@keyframes aparecer {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* ==================== PANEL ==================== */
+
+.panel, .panel-grande {
+    background: var(--color-panel);
+    border: 1px solid var(--color-borde);
+    border-radius: 12px;
+    padding: 2rem;
+    margin-bottom: 1.5rem;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.3);
+    backdrop-filter: blur(10px);
+}
+
+.panel h2, .panel-grande h2 {
+    margin-bottom: 1.5rem;
+    font-size: 1.5rem;
+    color: var(--color-primario);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.columnas-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1.5rem;
+}
+
+/* ==================== FORMULARIO ==================== */
+
+.grupo-entrada {
+    margin-bottom: 1.5rem;
+}
+
+.grupo-entrada label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 600;
+    color: var(--color-texto-secundario);
+}
+
+textarea, input[type="text"] {
+    width: 100%;
+    padding: 1rem;
+    background: rgba(0, 0, 0, 0.3);
+    border: 2px solid var(--color-borde);
+    border-radius: 8px;
+    color: var(--color-texto);
+    font-family: 'Courier New', monospace;
+    font-size: 1rem;
+    resize: vertical;
+    transition: var(--transicion);
+}
+
+textarea:focus, input[type="text"]:focus {
+    outline: none;
+    border-color: var(--color-primario);
+    box-shadow: 0 0 10px rgba(102, 126, 234, 0.3);
+}
+
+/* ==================== BOTONES ==================== */
+
+.boton {
+    padding: 0.75rem 1.5rem;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    font-weight: 600;
+    cursor: pointer;
+    transition: var(--transicion);
+    display: inline-flex;
+    align-items: center;
+    gap: 0.5rem;
+}
+
+.boton-primario {
+    background: linear-gradient(135deg, var(--color-primario), var(--color-secundario));
+    color: white;
+}
+
+.boton-primario:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(102, 126, 234, 0.3);
+}
+
+.boton-primario:active {
+    transform: translateY(0);
+}
+
+.boton-secundario {
+    background: transparent;
+    color: var(--color-primario);
+    border: 2px solid var(--color-primario);
+}
+
+.boton-secundario:hover {
+    background: var(--color-primario);
+    color: white;
+}
+
+.boton-peligro {
+    background: var(--color-error);
+    color: white;
+}
+
+.boton-peligro:hover {
+    background: darken(#f56565, 10%);
+    box-shadow: 0 10px 20px rgba(245, 101, 101, 0.3);
+}
+
+.botones-principales {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+}
+
+.botones-principales .boton {
+    flex: 1;
+}
+
+/* ==================== EJEMPLOS ==================== */
+
+.ejemplos {
+    margin-top: 2rem;
+    padding: 1.5rem;
+    background: rgba(102, 126, 234, 0.05);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+}
+
+.ejemplos h3 {
+    margin-bottom: 1rem;
+    color: var(--color-primario);
+}
+
+.boton-ejemplo {
+    padding: 0.5rem 1rem;
+    margin-right: 0.5rem;
+    margin-bottom: 0.5rem;
+    background: var(--color-borde);
+    color: var(--color-texto);
+    border: 1px solid var(--color-primario);
+    border-radius: 6px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+}
+
+.boton-ejemplo:hover {
+    background: var(--color-primario);
+    color: white;
+}
+
+/* ==================== RESULTADOS ==================== */
+
+.resultado-contenedor, .error-contenedor {
+    padding: 1.5rem;
+    border-radius: 8px;
+    border-left: 4px solid;
+}
+
+.resultado-contenedor {
+    background: rgba(72, 187, 120, 0.1);
+    border-color: var(--color-exito);
+    color: var(--color-exito);
+}
+
+.resultado-contenedor.oculto, .error-contenedor.oculto {
+    display: none;
+}
+
+.error-contenedor {
+    background: rgba(245, 101, 101, 0.1);
+    border-color: var(--color-error);
+    color: var(--color-error);
+}
+
+.resultado-item {
+    margin-bottom: 1rem;
+    padding: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-radius: 6px;
+}
+
+.resultado-item strong {
+    color: var(--color-primario);
+}
+
+.resultado-prediccion {
+    font-size: 1.5rem;
+    font-weight: 700;
+    color: var(--color-exito);
+    margin-top: 1rem;
+    padding: 1rem;
+    background: rgba(72, 187, 120, 0.2);
+    border-radius: 8px;
+    text-align: center;
+}
+
+/* ==================== ESTADÍSTICAS ==================== */
+
+.grid-stats {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+}
+
+.stat-card {
+    background: rgba(102, 126, 234, 0.1);
+    border: 1px solid var(--color-borde);
+    border-radius: 8px;
+    padding: 1.5rem;
+    text-align: center;
+}
+
+.stat-card h3 {
+    color: var(--color-primario);
+    margin-bottom: 0.5rem;
+    font-size: 0.9rem;
+    text-transform: uppercase;
+}
+
+.stat-card .valor {
+    font-size: 2rem;
+    font-weight: 700;
+    color: var(--color-texto);
+}
+
+/* ==================== FILTROS ==================== */
+
+.filtros {
+    display: flex;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 1rem;
+}
+
+.boton-filtro {
+    padding: 0.5rem 1rem;
+    background: var(--color-borde);
+    color: var(--color-texto);
+    border: 1px solid var(--color-borde);
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 0.9rem;
+    transition: var(--transicion);
+}
+
+.boton-filtro:hover, .boton-filtro.activo {
+    background: var(--color-primario);
+    color: white;
+    border-color: var(--color-primario);
+}
+
+/* ==================== LISTA RECUERDOS ==================== */
+
+.lista-recuerdos {
+    max-height: 500px;
+    overflow-y: auto;
+}
+
+.recuerdo-item {
+    padding: 1rem;
+    margin-bottom: 0.75rem;
+    background: rgba(0, 0, 0, 0.2);
+    border-left: 4px solid var(--color-primario);
+    border-radius: 4px;
+    font-size: 0.9rem;
+}
+
+.recuerdo-tipo {
+    display: inline-block;
+    padding: 0.25rem 0.5rem;
+    background: var(--color-primario);
+    color: white;
+    border-radius: 4px;
+    font-size: 0.8rem;
+    margin-bottom: 0.5rem;
+}
+
+/* ==================== GRÁFICOS ==================== */
+
+#grafico {
+    max-height: 400px;
+    margin-bottom: 2rem;
+}
+
+.info-grafico {
+    padding: 1rem;
+    background: rgba(102, 126, 234, 0.1);
+    border-radius: 8px;
+    border-left: 4px solid var(--color-primario);
+}
+
+/* ==================== FOOTER ==================== */
+
+.pie {
+    text-align: center;
+    padding: 2rem;
+    background: var(--color-panel);
+    border-top: 1px solid var(--color-borde);
+    color: var(--color-texto-secundario);
+    margin-top: 3rem;
+}
+
+.pie p {
+    margin: 0.5rem 0;
+}
+
+/* ==================== RESPONSIVE ==================== */
+
+@media (max-width: 768px) {
+    .contenedor-header {
+        flex-direction: column;
+        gap: 1rem;
+    }
+
+    .titulo-header h1 {
+        font-size: 1.75rem;
+    }
+
+    .columnas-2 {
+        grid-template-columns: 1fr;
+    }
+
+    .navegacion {
+        gap: 0.5rem;
+    }
+
+    .boton-nav {
+        font-size: 0.9rem;
+        padding: 0.5rem 1rem;
+    }
+
+    .grid-stats {
+        grid-template-columns: 1fr;
+    }
+}
+
+@media (max-width: 480px) {
+    .encabezado {
+        padding: 1rem;
+    }
+
+    .titulo-header h1 {
+        font-size: 1.25rem;
+    }
+
+    .panel, .panel-grande {
+        padding: 1rem;
+    }
+
+    .boton {
+        font-size: 0.9rem;
+        padding: 0.6rem 1rem;
+    }
+
+    .botones-principales {
+        flex-direction: column;
+    }
+
+    textarea {
+        font-size: 16px; /* Previene zoom en iOS */
+    }
+}
+
+/* ==================== SCROLLBAR ==================== */
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: var(--color-panel);
+}
+
+::-webkit-scrollbar-thumb {
+    background: var(--color-primario);
+    border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: var(--color-secundario);
+}
